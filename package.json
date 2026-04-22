@@ -1,106 +1,114 @@
 {
-  "name": "razorpay-universal",
-  "version": "1.0.0",
-  "description": "Framework-agnostic Razorpay checkout SDK with first-class support for React, Vue 3, Next.js, Nuxt 3, Angular, and Vanilla JS.",
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "unpkg": "dist/index.umd.js",
-  "jsdelivr": "dist/index.umd.js",
-  "sideEffects": false,
-  "files": [
-    "dist",
-    "README.md",
-    "CHANGELOG.md",
-    "LICENSE"
-  ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    },
-    "./react": {
-      "types": "./dist/adapters/react/index.d.ts",
-      "import": "./dist/adapters/react/index.mjs",
-      "require": "./dist/adapters/react/index.cjs"
-    },
-    "./vue": {
-      "types": "./dist/adapters/vue/index.d.ts",
-      "import": "./dist/adapters/vue/index.mjs",
-      "require": "./dist/adapters/vue/index.cjs"
-    },
-    "./angular": {
-      "types": "./dist/adapters/angular/index.d.ts",
-      "import": "./dist/adapters/angular/index.mjs",
-      "require": "./dist/adapters/angular/index.cjs"
-    },
-    "./vanilla": {
-      "types": "./dist/adapters/vanilla/index.d.ts",
-      "import": "./dist/adapters/vanilla/index.mjs",
-      "require": "./dist/adapters/vanilla/index.cjs"
-    }
-  },
-  "scripts": {
-    "build": "rollup -c rollup.config.mjs",
-    "clean": "rm -rf dist",
-    "prebuild": "npm run clean",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
-  },
-  "keywords": [
-    "razorpay",
-    "payment",
-    "checkout",
-    "react",
-    "vue",
-    "angular",
-    "nextjs",
-    "nuxt",
-    "typescript",
-    "sdk",
-    "universal"
-  ],
-  "author": "",
-  "license": "MIT",
-  "peerDependencies": {
-    "@angular/core": ">=14",
-    "react": ">=17",
-    "vue": ">=3"
-  },
-  "peerDependenciesMeta": {
-    "@angular/core": {
-      "optional": true
-    },
-    "react": {
-      "optional": true
-    },
-    "vue": {
-      "optional": true
-    }
-  },
-  "devDependencies": {
-    "@angular/common": "^19.2.21",
-    "@angular/core": "^19.2.21",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-typescript": "^11.1.6",
-    "@testing-library/dom": "^10.4.1",
-    "@testing-library/react": "^16.3.2",
-    "@types/node": "^20.11.19",
-    "@types/react": "^18.2.57",
-    "@vue/test-utils": "^2.4.4",
-    "jsdom": "^24.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "rollup": "^4.12.0",
-    "rollup-plugin-dts": "^6.1.0",
-    "rxjs": "^7.8.1",
-    "tslib": "^2.6.2",
-    "typescript": "^5.3.3",
-    "vitest": "^3.2.4",
-    "vue": "^3.4.19",
-    "zone.js": "^0.14.4"
-  }
+	"name": "razorpay-universal",
+	"version": "1.0.0",
+	"description": "Framework-agnostic Razorpay checkout SDK with first-class support for React, Vue 3, Next.js, Nuxt 3, Angular, and Vanilla JS.",
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"unpkg": "dist/index.umd.js",
+	"jsdelivr": "dist/index.umd.js",
+	"sideEffects": false,
+	"files": [
+		"dist",
+		"README.md",
+		"CHANGELOG.md",
+		"LICENSE"
+	],
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs"
+		},
+		"./react": {
+			"types": "./dist/adapters/react/index.d.ts",
+			"import": "./dist/adapters/react/index.mjs",
+			"require": "./dist/adapters/react/index.cjs"
+		},
+		"./vue": {
+			"types": "./dist/adapters/vue/index.d.ts",
+			"import": "./dist/adapters/vue/index.mjs",
+			"require": "./dist/adapters/vue/index.cjs"
+		},
+		"./angular": {
+			"types": "./dist/adapters/angular/index.d.ts",
+			"import": "./dist/adapters/angular/index.mjs",
+			"require": "./dist/adapters/angular/index.cjs"
+		},
+		"./vanilla": {
+			"types": "./dist/adapters/vanilla/index.d.ts",
+			"import": "./dist/adapters/vanilla/index.mjs",
+			"require": "./dist/adapters/vanilla/index.cjs"
+		}
+	},
+	"scripts": {
+		"build": "rollup -c rollup.config.mjs",
+		"clean": "rm -rf dist",
+		"prebuild": "npm run clean",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"typecheck": "tsc --noEmit",
+		"prepublishOnly": "npm run typecheck && npm run test && npm run build"
+	},
+	"keywords": [
+		"razorpay",
+		"payment",
+		"checkout",
+		"react",
+		"vue",
+		"angular",
+		"nextjs",
+		"nuxt",
+		"typescript",
+		"sdk",
+		"universal"
+	],
+	"author": "Rupam Shil <rupamshil111@gmail.com>",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Rupam-Shil/razorpay-universal.git"
+	},
+	"homepage": "https://rupam-shil.github.io/razorpay-universal",
+	"bugs": {
+		"url": "https://github.com/Rupam-Shil/razorpay-universal/issues"
+	},
+	"peerDependencies": {
+		"@angular/core": ">=14",
+		"react": ">=17",
+		"vue": ">=3"
+	},
+	"peerDependenciesMeta": {
+		"@angular/core": {
+			"optional": true
+		},
+		"react": {
+			"optional": true
+		},
+		"vue": {
+			"optional": true
+		}
+	},
+	"devDependencies": {
+		"@angular/common": "^19.2.21",
+		"@angular/core": "^19.2.21",
+		"@rollup/plugin-node-resolve": "^15.2.3",
+		"@rollup/plugin-typescript": "^11.1.6",
+		"@testing-library/dom": "^10.4.1",
+		"@testing-library/react": "^16.3.2",
+		"@types/node": "^20.11.19",
+		"@types/react": "^18.2.57",
+		"@vue/test-utils": "^2.4.4",
+		"jsdom": "^24.0.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"rollup": "^4.12.0",
+		"rollup-plugin-dts": "^6.1.0",
+		"rxjs": "^7.8.1",
+		"tslib": "^2.6.2",
+		"typescript": "^5.3.3",
+		"vitest": "^3.2.4",
+		"vue": "^3.4.19",
+		"zone.js": "^0.14.4"
+	}
 }
