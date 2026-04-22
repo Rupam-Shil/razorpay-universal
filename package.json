@@ -1,6 +1,6 @@
 {
 	"name": "razorpay-universal",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Framework-agnostic Razorpay checkout SDK with first-class support for React, Vue 3, Next.js, Nuxt 3, Angular, and Vanilla JS.",
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
