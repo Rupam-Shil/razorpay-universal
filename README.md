@@ -1,5 +1,9 @@
 # razorpay-universal
 
+[![npm version](https://img.shields.io/npm/v/razorpay-universal.svg)](https://www.npmjs.com/package/razorpay-universal)
+[![npm downloads](https://img.shields.io/npm/dm/razorpay-universal.svg)](https://www.npmjs.com/package/razorpay-universal)
+[![license](https://img.shields.io/npm/l/razorpay-universal.svg)](https://github.com/Rupam-Shil/razorpay-universal/blob/main/LICENSE)
+
 A framework-agnostic Razorpay checkout SDK with first-class support for **React**, **Vue 3**, **Next.js**, **Nuxt 3**, **Angular**, and **Vanilla JS**, fully typed in TypeScript.
 
 - Single script loader shared across every adapter (singleton, idempotent).
