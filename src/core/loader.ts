@@ -38,6 +38,22 @@ export function resetLoaderState(): void {
   state.scriptUrl = null;
 }
 
+function validateScriptUrl(url: string): void {
+  let parsed: URL;
+  try {
+    parsed = new URL(url);
+  } catch {
+    throw new RazorpayLoadError(
+      `Invalid scriptUrl: "${url}" is not a valid URL.`,
+    );
+  }
+  if (parsed.protocol !== 'https:') {
+    throw new RazorpayLoadError(
+      `Invalid scriptUrl: only https:// URLs are allowed (got "${parsed.protocol}").`,
+    );
+  }
+}
+
 export function loadRazorpayScript(
   options: LoadScriptOptions = {},
 ): Promise<void> {
@@ -52,6 +68,12 @@ export function loadRazorpayScript(
     );
   }
 
+  try {
+    validateScriptUrl(scriptUrl);
+  } catch (err) {
+    return Promise.reject(err);
+  }
+
   if (isScriptLoaded()) {
     return Promise.resolve();
   }
@@ -62,8 +84,14 @@ export function loadRazorpayScript(
 
   state.scriptUrl = scriptUrl;
   state.promise = new Promise<void>((resolve, reject) => {
+    // CSS.escape prevents selector injection when scriptUrl contains quotes
+    // or other special CSS characters.
+    const escapedUrl =
+      typeof CSS !== 'undefined' && CSS.escape
+        ? CSS.escape(scriptUrl)
+        : scriptUrl.replace(/["\\]/g, '\\$&');
     const existing = document.querySelector<HTMLScriptElement>(
-      `script[src="${scriptUrl}"]`,
+      `script[src="${escapedUrl}"]`,
     );
 
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
@@ -118,7 +146,7 @@ export function loadRazorpayScript(
     script.src = scriptUrl;
     script.async = true;
     script.defer = true;
-    script.dataset['razorpayUniversal'] = 'true';
+    script.dataset.razorpayUniversal = 'true';
     script.addEventListener('load', handleLoad, { once: true });
     script.addEventListener('error', handleError, { once: true });
     document.head.appendChild(script);

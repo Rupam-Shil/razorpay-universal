@@ -1,3 +1,4 @@
+import { isPlatformBrowser } from '@angular/common';
 import {
   Inject,
   Injectable,
@@ -22,10 +23,6 @@ import type {
 export const RAZORPAY_LOAD_OPTIONS = new InjectionToken<LoadScriptOptions>(
   'RAZORPAY_LOAD_OPTIONS',
 );
-
-function isPlatformBrowser(platformId: unknown): boolean {
-  return platformId === 'browser';
-}
 
 @Injectable({ providedIn: 'root' })
 export class RazorpayService {
