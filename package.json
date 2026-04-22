@@ -69,7 +69,7 @@
 		"type": "git",
 		"url": "git+https://github.com/Rupam-Shil/razorpay-universal.git"
 	},
-	"homepage": "https://rupam-shil.github.io/razorpay-universal",
+	"homepage": "https://razorpay-universal.vercel.app/",
 	"bugs": {
 		"url": "https://github.com/Rupam-Shil/razorpay-universal/issues"
 	},
