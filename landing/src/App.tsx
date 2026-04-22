@@ -136,6 +136,16 @@ const FRAMEWORKS = [
   { name: 'VANILLA JS', version: 'ESM · CJS · UMD' },
 ];
 
+type PackageManager = 'npm' | 'yarn' | 'pnpm';
+
+const INSTALL_COMMANDS: Record<PackageManager, string> = {
+  npm: 'npm install razorpay-universal',
+  yarn: 'yarn add razorpay-universal',
+  pnpm: 'pnpm add razorpay-universal',
+};
+
+const GITHUB_URL = 'https://github.com/Rupam-Shil/razorpay-universal';
+
 const FEATURES = [
   {
     n: '01',
@@ -207,6 +217,7 @@ function useCopy(): [boolean, (text: string) => Promise<void>] {
 
 export default function App() {
   const [active, setActive] = useState<FrameworkKey>('react');
+  const [pm, setPm] = useState<PackageManager>('npm');
   const [aiCopied, copyAi] = useCopy();
   const [installCopied, copyInstall] = useCopy();
   const [scrollY, setScrollY] = useState(0);
@@ -269,7 +280,7 @@ export default function App() {
           <a href="#api">api</a>
           <a
             className="nav-ghost"
-            href="https://github.com/"
+            href={GITHUB_URL}
             target="_blank"
             rel="noreferrer"
           >
@@ -325,19 +336,41 @@ export default function App() {
                 </span>
               </button>
 
-              <button
-                type="button"
-                className="btn btn-ghost"
-                onClick={() => copyInstall('npm install razorpay-universal')}
-              >
-                <span className="cmd">
-                  <span className="cmd-prompt">$</span>
-                  npm install razorpay-universal
-                </span>
-                <span className="btn-sub">
-                  {installCopied ? 'copied ✓' : 'click to copy'}
-                </span>
-              </button>
+              <div className="install-box">
+                <div className="pm-tabs" role="tablist" aria-label="Package manager">
+                  {(Object.keys(INSTALL_COMMANDS) as PackageManager[]).map(
+                    (key) => (
+                      <button
+                        key={key}
+                        type="button"
+                        role="tab"
+                        aria-selected={pm === key}
+                        className={`pm-tab ${pm === key ? 'pm-tab-active' : ''}`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setPm(key);
+                        }}
+                      >
+                        {key}
+                      </button>
+                    ),
+                  )}
+                </div>
+                <button
+                  type="button"
+                  className="btn btn-ghost install-btn"
+                  onClick={() => copyInstall(INSTALL_COMMANDS[pm])}
+                  aria-label={`Copy ${pm} install command`}
+                >
+                  <span className="cmd">
+                    <span className="cmd-prompt">$</span>
+                    {INSTALL_COMMANDS[pm]}
+                  </span>
+                  <span className="btn-sub">
+                    {installCopied ? 'copied ✓' : 'click to copy'}
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
 

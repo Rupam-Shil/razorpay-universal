@@ -352,6 +352,63 @@
   min-width: 340px;
 }
 
+/* ------------------------------ pm tabs + install box ------------------------------ */
+.install-box {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  position: relative;
+}
+
+.pm-tabs {
+  display: inline-flex;
+  align-self: flex-start;
+  border: 1.5px solid var(--ink);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  overflow: hidden;
+  background: var(--paper);
+  transform: translateY(1.5px); /* merge into install button border */
+}
+
+.pm-tab {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--line-strong);
+  transition: color 0.15s ease, background 0.15s ease;
+  cursor: pointer;
+}
+
+.pm-tab:last-child { border-right: none; }
+
+.pm-tab:hover {
+  color: var(--ink);
+  background: rgba(15, 15, 14, 0.04);
+}
+
+.pm-tab-active,
+.pm-tab-active:hover {
+  color: var(--paper);
+  background: var(--ink);
+  cursor: default;
+}
+
+.install-btn {
+  border-radius: 0 var(--radius) var(--radius) var(--radius);
+  min-width: 320px;
+}
+
+.install-btn:hover {
+  transform: translate(-2px, -2px);
+}
+
 /* ------------------------------ receipt ------------------------------ */
 .receipt {
   position: relative;
@@ -761,12 +818,18 @@
   border-radius: var(--radius);
 }
 
-.tab:hover { color: var(--ink); }
+.tab:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+  background: rgba(15, 15, 14, 0.04);
+}
 
-.tab-active {
+.tab-active,
+.tab-active:hover {
   background: var(--ink);
   color: var(--paper);
   border-color: var(--ink);
+  cursor: default;
 }
 
 .terminal {
