@@ -1,0 +1,12 @@
+src/
+tests/
+landing/
+node_modules/
+coverage/
+rollup.config.mjs
+tsconfig.json
+tsconfig.test.json
+vitest.config.ts
+.gitignore
+.npmignore
+todo.md
